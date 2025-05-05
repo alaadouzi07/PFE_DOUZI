@@ -1,0 +1,43 @@
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import MinMaxScaler
+
+# Générer des données synthétiques
+# 1000 exemples pour chaque colonne (ds_1 à ds_8 et cs)
+n_samples = 1000
+
+# Générer des données aléatoires pour ds_1 à ds_8 (valeurs entre 0 et 1)
+X_synthetic = np.random.rand(n_samples, 8)
+
+# Générer des étiquettes (cs), par exemple, une classification binaire entre 0 et 1
+y_synthetic = np.random.randint(0, 2, size=n_samples)
+
+# Créer un DataFrame
+df_synthetic = pd.DataFrame(X_synthetic, columns=[f'ds_{i+1}' for i in range(8)])
+df_synthetic['cs'] = y_synthetic
+
+# Vérifier les premières lignes des données générées
+print(df_synthetic.head())
+
+# Séparer les caractéristiques et la cible
+features = df_synthetic[['ds_1', 'ds_2', 'ds_3', 'ds_4', 'ds_5', 'ds_6', 'ds_7', 'ds_8']].values
+labels = df_synthetic['cs'].values
+
+# Normaliser les caractéristiques
+scaler = MinMaxScaler()
+features_scaled = scaler.fit_transform(features)
+
+# Diviser les données en X_train et X_test
+X_train, X_test, y_train, y_test = train_test_split(features_scaled, labels, test_size=0.2, random_state=42)
+
+# Vérifier la forme des données
+print("X_train shape:", X_train.shape)
+print("X_test shape:", X_test.shape)
+print("y_train shape:", y_train.shape)
+print("y_test shape:", y_test.shape)
+
+# Sauvegarder X_train et X_test dans un fichier .npy pour les utiliser dans le script d'entraînement
+np.save('x_data.npy', {'X_train': X_train, 'X_test': X_test, 'y_train': y_train, 'y_test': y_test})
+
+print("Les données ont été sauvegardées dans 'x_data.npy'.")
