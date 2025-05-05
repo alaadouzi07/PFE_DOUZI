@@ -1,4 +1,4 @@
-# PROJET FIN'PROJET DE FIN D’ÉTUDES : Étude et développement d'un système de sécurité contre les menaces cybernétiques sur les équipements de bord modernes des avions de l'armée de l'air
+# PROJET DE FIN D’ÉTUDES : Étude et développement d'un système de sécurité contre les menaces cybernétiques sur les équipements de bord modernes des avions de l'armée de l'air
 ![image](https://github.com/user-attachments/assets/8f6de449-9f80-432d-9593-11af8053053b)
 ## Description
 Ce dépôt contient le code source, les ressources et le rapport final du projet de fin d’études (PFE) réalisé à l’École d’Aviation Borj El Amri (EABA) dans le cadre de la sécurisation des systèmes embarqués pour l’aviation militaire tunisienne. Ce projet vise à développer un système de détection et de prévention des intrusions (IDS/IPS) pour contrer des cybermenaces comme le GPS spoofing et les attaques réseau (ex. : DDoS, intrusions Wi-Fi/USB).
